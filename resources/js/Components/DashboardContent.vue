@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full pt-6 pb-3 container-min-h pl-6 bg-gray-500">
+    <div class="w-full pt-6 pb-3 container-min-h pl-6 bg-gray-200">
         <div
             class="ltn-topbar ltn-dashboard-container flex justify-between mb-5"
         >

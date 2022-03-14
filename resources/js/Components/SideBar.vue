@@ -31,7 +31,7 @@
             </ul>
         </div>
 
-        <p class="hidden text-sm text-gray-200 text-center xl:block">
+        <p class="hidden text-sm text-gray-500 text-center xl:block">
             Crafted by
             <a class="underline" href="https://youtube.com" target="_blank"
                 >Shemar Ennis</a

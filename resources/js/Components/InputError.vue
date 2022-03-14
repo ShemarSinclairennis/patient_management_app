@@ -1,11 +1,13 @@
-<script setup>
-defineProps(['message']);
-</script>
-
 <template>
-    <div v-show="message">
-        <p class="text-sm text-red-600">
-            {{ message }}
-        </p>
-    </div>
+    <div class="text-red-400 mt-2 text-sm font-light" v-text="message"></div>
 </template>
+
+<script>
+export default {
+    name: "InputError",
+
+    props: {
+        message: String,
+    },
+};
+</script>

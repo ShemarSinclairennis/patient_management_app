@@ -39,9 +39,36 @@
             </base-card>
         </div>
         <div class="mt-12">
-            <card-label label="Patients" />
+            <!-- <card-label label="Patients" />
             <base-card class="h-96">
                 <card-title title="Service Tickets" />
+               
+            </base-card> -->
+            <card-label label="Patients" />
+            <base-card>
+                <base-table class="px-8 pb-8">
+                    <template #head>
+                        <tr>
+                            <th class="w-1/6">Ticket Number</th>
+                            <th class="w-1/6">Name</th>
+                            <th class="w-1/6">Service</th>
+                            <th class="w-1/6">Status</th>
+                        </tr>
+                    </template>
+                    <template #body>
+                        <tr v-for="n in 15" :key="n">
+                            <td>RD00023</td>
+                            <td>Katey Perry</td>
+                            <td>X-RAY</td>
+                            <td class="flex space-x-12">
+                                <status-tag :status="'In Progress'" />
+                                <i
+                                    class="fa-solid fa-circle-xmark fa-lg text-red-400"
+                                ></i>
+                            </td>
+                        </tr>
+                    </template>
+                </base-table>
             </base-card>
         </div>
     </dashboard-layout>
@@ -53,9 +80,13 @@ import BaseCard from "@/Components/BaseCard";
 import CardLabel from "@/Components/CardLabel";
 import CardTitle from "@/Components/CardTitle";
 import CounterIcon from "@/Components/CounterIcon";
+import BaseTable from "@/Components/BaseTable";
+import StatusTag from "@/Components/StatusTag";
 
 export default {
     components: {
+        StatusTag,
+        BaseTable,
         CounterIcon,
         CardTitle,
         CardLabel,
