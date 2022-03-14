@@ -25,7 +25,8 @@
                     <option>Urology</option>
                 </base-input>
             </div>
-            <base-input class="w-full" label="File Attachment" type="file" />
+            <base-input class="w-full" label="Description" type="text" />
+            <!-- <base-input class="w-full" label="File Attachment" type="file" /> -->
 
             <div class="flex justify-end">
                 <base-button

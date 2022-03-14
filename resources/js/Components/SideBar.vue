@@ -11,14 +11,14 @@
                 class="ltn-sidebar__links flex items-center w-full md:block md:mt-8"
             >
                 <sidebar-link
-                    :active="route().current('tickets')"
-                    :href="route('tickets')"
+                    :active="route().current('tickets.index')"
+                    :href="route('tickets.index')"
                     icon="fa-solid fa-ticket"
                     >Tickets</sidebar-link
                 >
                 <sidebar-link
-                    :active="route().current('patients')"
-                    :href="route('patients')"
+                    :active="route().current('patients.index')"
+                    :href="route('patients.index')"
                     icon="fa-solid fa-hospital-user"
                     >Patients</sidebar-link
                 >

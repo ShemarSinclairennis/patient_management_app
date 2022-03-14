@@ -48,6 +48,7 @@
             <base-card>
                 <div class="m-8">
                     <base-input
+                        v-model="params.query"
                         class="w-1/3"
                         container-class="input-size"
                         leading="fas fa-search"
@@ -65,14 +66,22 @@
                         </tr>
                     </template>
                     <template #body>
-                        <tr v-for="n in 15" :key="n">
-                            <td>RD00023</td>
-                            <td>Katey Perry</td>
-                            <td>X-RAY</td>
+                        <tr v-for="ticket in tickets" :key="ticket.id">
+                            <td>{{ ticket.ticket_number }}</td>
+                            <td>
+                                {{ ticket.first_name }}
+                                {{ ticket.last_name }}
+                            </td>
+                            <td>{{ ticket.service }}</td>
                             <td class="flex space-x-12">
-                                <status-tag :status="'In Progress'" />
+                                <status-tag :status="ticket.status" />
                                 <i
                                     class="fa-solid fa-circle-xmark fa-lg text-red-400"
+                                    @click="
+                                        $inertia.delete(
+                                            route('tickets.destroy', ticket)
+                                        )
+                                    "
                                 ></i>
                             </td>
                         </tr>
@@ -92,6 +101,9 @@ import CardTitle from "@/Components/CardTitle";
 import CounterIcon from "@/Components/CounterIcon";
 import BaseTable from "@/Components/BaseTable";
 import StatusTag from "@/Components/StatusTag";
+import useFilterRequest from "@/composables/useFilterRequest";
+import useEmptyResource from "@/composables/useEmptyResource";
+import { provide, toRefs } from "vue";
 
 export default {
     components: {
@@ -103,6 +115,25 @@ export default {
         CardLabel,
         BaseCard,
         DashboardLayout,
+    },
+
+    props: {
+        tickets: Array,
+    },
+    setup(props) {
+        const { tickets } = toRefs(props);
+
+        const { params } = useFilterRequest("tickets.index", {
+            ticket: route().params.ticket,
+        });
+
+        const { resourceEmpty: ticketsEmpty } = useEmptyResource(tickets);
+        provide("params", params);
+        provide("tickets", tickets);
+
+        return {
+            params,
+        };
     },
 };
 </script>
