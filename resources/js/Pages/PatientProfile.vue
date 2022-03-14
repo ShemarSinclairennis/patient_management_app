@@ -146,7 +146,10 @@
             />
             <base-card
                 class="h-64 border-dotted border-2 border-gray-500 grid justify-items-center items-center"
-                ><i class="fa-solid fa-circle-plus text-8xl text-purple-400"></i
+                ><i
+                    class="fa-solid fa-circle-plus text-8xl text-purple-400 hover:text-blue-400"
+                    @click="toggleMedcardModal"
+                ></i
             ></base-card>
         </div>
         <medcard-modal v-if="showMedcardModal" @toggle="toggleMedcardModal" />

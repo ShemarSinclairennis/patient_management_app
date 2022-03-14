@@ -27039,13 +27039,6 @@ var _hoisted_13 = {
 var _hoisted_14 = {
   "class": "grid gap-y-12 grid-cols-2 mt-8"
 };
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa-solid fa-circle-plus text-8xl text-purple-400"
-}, null, -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_card_label = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("card-label");
 
@@ -27222,7 +27215,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "h-64 border-dotted border-2 border-gray-500 grid justify-items-center items-center"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_15];
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+            "class": "fa-solid fa-circle-plus text-8xl text-purple-400 hover:text-blue-400",
+            onClick: _cache[0] || (_cache[0] = function () {
+              return $setup.toggleMedcardModal && $setup.toggleMedcardModal.apply($setup, arguments);
+            })
+          })];
         }),
         _: 1
         /* STABLE */
