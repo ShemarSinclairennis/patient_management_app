@@ -25,6 +25,7 @@
                 type="button"
                 label="Add Patient"
                 icon="fa-solid fa-plus"
+                @click="togglePatientModal"
             />
         </div>
         <base-card>
@@ -52,14 +53,17 @@
                                     <dropdown-link
                                         icon="fa-solid fa-eye"
                                         label="View"
+                                        class="hover:bg-black"
                                     />
                                     <dropdown-link
                                         icon="fas fa-edit"
                                         label="Edit"
+                                        class="hover:bg-black"
                                     />
                                     <dropdown-link
                                         icon="fas fa-trash"
                                         label="Delete"
+                                        class="hover:bg-black"
                                     />
                                 </dropdown>
                             </div>
@@ -67,11 +71,13 @@
                     </tr>
                 </template> </base-table
         ></base-card>
+        <patient-modal v-if="showPatientModal" @toggle="togglePatientModal" />
     </dashboard-layout>
 </template>
 
 <script>
 import DashboardLayout from "@/Layouts/DashboardLayout";
+import PatientModal from "@/Components/Modal/Modals/PatientModal";
 import BaseTable from "@/Components/BaseTable";
 import BaseCard from "@/Components/BaseCard";
 import BaseInput from "@/Components/BaseInput";
@@ -79,9 +85,12 @@ import BaseButton from "@/Components/BaseButton";
 import DatePicker from "vue-datepicker-next";
 import Dropdown from "@/Components/Dropdown";
 import DropdownLink from "@/Components/DropdownLink";
+import useModal from "@/composables/useModal";
+import { provide, toRefs } from "vue";
 
 export default {
     components: {
+        PatientModal,
         DatePicker,
         BaseTable,
         BaseButton,
@@ -90,6 +99,20 @@ export default {
         DashboardLayout,
         Dropdown,
         DropdownLink,
+    },
+    setup(props) {
+        const { showModal, toggleModal } = useModal();
+        const { showModal: showPatientModal, toggleModal: togglePatientModal } =
+            useModal();
+
+        provide("togglePatientModal", togglePatientModal);
+
+        return {
+            showModal,
+            toggleModal,
+            showPatientModal,
+            togglePatientModal,
+        };
     },
 };
 </script>

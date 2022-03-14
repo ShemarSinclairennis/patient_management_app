@@ -126,6 +126,7 @@
                     label="Add Medical Card"
                     icon="fa-solid fa-plus"
                     class="mr-8"
+                    @click="toggleMedcardModal"
                 />
             </div>
         </div>
@@ -148,6 +149,7 @@
                 ><i class="fa-solid fa-circle-plus text-8xl text-purple-400"></i
             ></base-card>
         </div>
+        <medcard-modal v-if="showMedcardModal" @toggle="toggleMedcardModal" />
     </dashboard-layout>
 </template>
 
@@ -165,6 +167,9 @@ import DropdownLink from "@/Components/DropdownLink";
 import InfoField from "@/Components/InfoField";
 import DepartmentTag from "@/Components/DepartmentTag";
 import MedCard from "@/Components/MedCard";
+import MedcardModal from "@/Components/Modal/Modals/MedcardModal";
+import useModal from "@/composables/useModal";
+import { provide, toRefs } from "vue";
 
 export default {
     components: {
@@ -180,7 +185,22 @@ export default {
         DropdownLink,
         InfoField,
         MedCard,
+        MedcardModal,
         DepartmentTag,
+    },
+    setup(props) {
+        const { showModal, toggleModal } = useModal();
+        const { showModal: showMedcardModal, toggleModal: toggleMedcardModal } =
+            useModal();
+
+        provide("toggleMedcardModal", toggleMedcardModal);
+
+        return {
+            showModal,
+            toggleModal,
+            showMedcardModal,
+            toggleMedcardModal,
+        };
     },
 };
 </script>

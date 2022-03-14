@@ -35,12 +35,12 @@
              <div class="flex justify-center mb-4">
                 <i class="fas fa-circle-h fa-2x text-purple-400"></i>
             </div>
-            Developed by
+          
             <a
                 class="underline"
-                href="https://github.com/ShemarSinclairennis"
+                href="https://github.com/ShemarSinclairennis/patient_management_app"
                 target="_blank"
-                >Shemar Ennis</a
+                >Alpha 1.0.1</a
             >
         </p>
     </nav>
