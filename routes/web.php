@@ -36,3 +36,8 @@ Route::get('/patients', function () {
     return Inertia::render('Patients');
 })->middleware(['auth', 'verified'])->name('patients');
 require __DIR__.'/auth.php';
+
+Route::get('/profile', function () {
+    return Inertia::render('PatientProfile');
+})->middleware(['auth', 'verified'])->name('profile');
+require __DIR__.'/auth.php';

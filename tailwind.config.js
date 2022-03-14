@@ -35,6 +35,8 @@ module.exports = {
             },
             green: {
                 400: "#009F4F",
+                500: "#5ED18A",
+                600: "#005D69",
             },
             blue: {
                 DEFAULT: "#0011D8",
@@ -47,6 +49,9 @@ module.exports = {
                 DEFAULT: "#E80000",
                 400: "#E80000",
             },
+            pink: { DEFAULT: "#E07EE0" },
+            teal: { DEFAULT: "#0FC4DB" },
+            yellow: { DEFAULT: "#F4DB22" },
         },
         extend: {
             fontFamily: {
