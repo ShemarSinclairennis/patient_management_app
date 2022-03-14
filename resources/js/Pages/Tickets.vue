@@ -3,7 +3,7 @@
         <div>
             <card-label label="Services" />
             <base-card title="Service Tickets" class="h-44">
-                <card-title title="Service Tickets" />
+                <card-title title="Service Tickets" color="purple" />
                 <div class="flex justify-center mt-8 space-x-20">
                     <counter-icon
                         icon="fas fa-user"

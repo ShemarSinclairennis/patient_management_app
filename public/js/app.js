@@ -23270,7 +23270,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    title: String
+    title: String,
+    color: String
   }
 });
 
@@ -24212,10 +24213,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_DashboardLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/DashboardLayout */ "./resources/js/Layouts/DashboardLayout.vue");
+/* harmony import */ var _Components_BaseTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/BaseTable */ "./resources/js/Components/BaseTable.vue");
+/* harmony import */ var _Components_BaseCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/BaseCard */ "./resources/js/Components/BaseCard.vue");
+/* harmony import */ var _Components_CardTitle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/CardTitle */ "./resources/js/Components/CardTitle.vue");
+/* harmony import */ var _Components_BaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/BaseInput */ "./resources/js/Components/BaseInput.vue");
+/* harmony import */ var _Components_BaseButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/BaseButton */ "./resources/js/Components/BaseButton.vue");
+/* harmony import */ var vue_datepicker_next__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-datepicker-next */ "./node_modules/vue-datepicker-next/index.es.js");
+/* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/Dropdown */ "./resources/js/Components/Dropdown.vue");
+/* harmony import */ var _Components_DropdownLink__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Components/DropdownLink */ "./resources/js/Components/DropdownLink.vue");
+
+
+
+
+
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    DashboardLayout: _Layouts_DashboardLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    DatePicker: vue_datepicker_next__WEBPACK_IMPORTED_MODULE_6__["default"],
+    BaseTable: _Components_BaseTable__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BaseButton: _Components_BaseButton__WEBPACK_IMPORTED_MODULE_5__["default"],
+    BaseCard: _Components_BaseCard__WEBPACK_IMPORTED_MODULE_2__["default"],
+    BaseInput: _Components_BaseInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+    CardTitle: _Components_CardTitle__WEBPACK_IMPORTED_MODULE_3__["default"],
+    DashboardLayout: _Layouts_DashboardLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Dropdown: _Components_Dropdown__WEBPACK_IMPORTED_MODULE_7__["default"],
+    DropdownLink: _Components_DropdownLink__WEBPACK_IMPORTED_MODULE_8__["default"]
   }
 });
 
@@ -24653,15 +24678,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-purple-400 w-full h-12"
-};
-var _hoisted_2 = {
   "class": "m-4 pt-3 font-medium text-white"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+      'bg-green-400': $props.color === 'green',
+      'bg-blue-400': $props.color === 'blue',
+      'bg-purple-400': $props.color === 'purple',
+      'bg-orange-400': $props.color === 'orange',
+      'bg-red-400': $props.color === 'red'
+    }, "w-full h-12"])
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
-  )]);
+  )], 2
+  /* CLASS */
+  );
 }
 
 /***/ }),
@@ -26127,11 +26159,143 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "flex justify-between items-center mb-12"
+};
+var _hoisted_2 = {
+  "class": "flex items-center"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "w-1/6"
+}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "w-1/6"
+}, "Date of Birth"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "w-1/6"
+}, "Contact"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "w-1/6"
+}, "Emergency Contact"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "w-1/6"
+}, "Address")], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Katey Perry", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "May 2 ,1998", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "(876)-447-3334", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "(876)-447-3556", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "extend"
+};
+var _hoisted_9 = {
+  "class": "flex justify-between items-center"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 24 Mabel Avenue ");
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_card_title = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("card-title");
+
+  var _component_base_input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-input");
+
+  var _component_date_picker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("date-picker");
+
+  var _component_base_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-button");
+
+  var _component_dropdown_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("dropdown-link");
+
+  var _component_dropdown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("dropdown");
+
+  var _component_base_table = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-table");
+
+  var _component_base_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-card");
+
   var _component_dashboard_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("dashboard-layout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_dashboard_layout, {
     header: "Requests"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card_title, {
+        title: "Request Page is currently unable to use - Author: Shemar Ennis",
+        color: "red",
+        "class": "mb-8"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
+        "class": "mr-3",
+        "container-class": "input-size",
+        leading: "fas fa-search",
+        placeholder: "Search Patients...",
+        type: "text"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_date_picker, {
+        "class": "mr-3 input-size",
+        format: "DD/MM/YYYY",
+        placeholder: "Filter By Date",
+        "prefix-class": "xmx",
+        type: "date",
+        "value-type": "YYYY-MM-DD"
+      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
+        color: "purple",
+        type: "button",
+        label: "Make a Request",
+        icon: "fa-solid fa-plus"
+      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_card, null, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_table, {
+            "class": "px-8 pb-8"
+          }, {
+            head: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_3];
+            }),
+            body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(15, function (n) {
+                return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
+                  key: n
+                }, [_hoisted_4, _hoisted_5, _hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dropdown, null, {
+                  "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                    return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dropdown_link, {
+                      icon: "fa-solid fa-eye",
+                      label: "View"
+                    }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dropdown_link, {
+                      icon: "fas fa-edit",
+                      label: "Edit"
+                    }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dropdown_link, {
+                      icon: "fas fa-trash",
+                      label: "Delete"
+                    })];
+                  }),
+                  _: 1
+                  /* STABLE */
+
+                })])])]);
+              }), 64
+              /* STABLE_FRAGMENT */
+              ))];
+            }),
+            _: 1
+            /* STABLE */
+
+          })];
+        }),
+        _: 1
+        /* STABLE */
+
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
   });
 }
 
@@ -26223,7 +26387,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card_title, {
-            title: "Service Tickets"
+            title: "Service Tickets",
+            color: "purple"
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_counter_icon, {
             icon: "fas fa-user",
             "icon-color": "green",
