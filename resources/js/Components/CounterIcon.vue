@@ -12,7 +12,7 @@
         <div class="text-xl">
             {{ service }}
         </div>
-        <div class="text-5xl">
+        <div class="text-3xl">
             {{ count }}
         </div>
         <div v-if="icon">

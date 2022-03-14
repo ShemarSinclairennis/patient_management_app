@@ -46,6 +46,15 @@
             </base-card> -->
             <card-label label="Patients" />
             <base-card>
+                <div class="m-8">
+                    <base-input
+                        class="w-1/3"
+                        container-class="input-size"
+                        leading="fas fa-search"
+                        placeholder="Search Patients..."
+                        type="text"
+                    />
+                </div>
                 <base-table class="px-8 pb-8">
                     <template #head>
                         <tr>
@@ -77,6 +86,7 @@
 <script>
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import BaseCard from "@/Components/BaseCard";
+import BaseInput from "@/Components/BaseInput";
 import CardLabel from "@/Components/CardLabel";
 import CardTitle from "@/Components/CardTitle";
 import CounterIcon from "@/Components/CounterIcon";
@@ -87,6 +97,7 @@ export default {
     components: {
         StatusTag,
         BaseTable,
+        BaseInput,
         CounterIcon,
         CardTitle,
         CardLabel,

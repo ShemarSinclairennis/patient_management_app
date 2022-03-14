@@ -24234,11 +24234,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_DashboardLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/DashboardLayout */ "./resources/js/Layouts/DashboardLayout.vue");
 /* harmony import */ var _Components_BaseCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/BaseCard */ "./resources/js/Components/BaseCard.vue");
-/* harmony import */ var _Components_CardLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/CardLabel */ "./resources/js/Components/CardLabel.vue");
-/* harmony import */ var _Components_CardTitle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/CardTitle */ "./resources/js/Components/CardTitle.vue");
-/* harmony import */ var _Components_CounterIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/CounterIcon */ "./resources/js/Components/CounterIcon.vue");
-/* harmony import */ var _Components_BaseTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/BaseTable */ "./resources/js/Components/BaseTable.vue");
-/* harmony import */ var _Components_StatusTag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/StatusTag */ "./resources/js/Components/StatusTag.vue");
+/* harmony import */ var _Components_BaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/BaseInput */ "./resources/js/Components/BaseInput.vue");
+/* harmony import */ var _Components_CardLabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/CardLabel */ "./resources/js/Components/CardLabel.vue");
+/* harmony import */ var _Components_CardTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/CardTitle */ "./resources/js/Components/CardTitle.vue");
+/* harmony import */ var _Components_CounterIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/CounterIcon */ "./resources/js/Components/CounterIcon.vue");
+/* harmony import */ var _Components_BaseTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/BaseTable */ "./resources/js/Components/BaseTable.vue");
+/* harmony import */ var _Components_StatusTag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/StatusTag */ "./resources/js/Components/StatusTag.vue");
+
 
 
 
@@ -24248,11 +24250,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    StatusTag: _Components_StatusTag__WEBPACK_IMPORTED_MODULE_6__["default"],
-    BaseTable: _Components_BaseTable__WEBPACK_IMPORTED_MODULE_5__["default"],
-    CounterIcon: _Components_CounterIcon__WEBPACK_IMPORTED_MODULE_4__["default"],
-    CardTitle: _Components_CardTitle__WEBPACK_IMPORTED_MODULE_3__["default"],
-    CardLabel: _Components_CardLabel__WEBPACK_IMPORTED_MODULE_2__["default"],
+    StatusTag: _Components_StatusTag__WEBPACK_IMPORTED_MODULE_7__["default"],
+    BaseTable: _Components_BaseTable__WEBPACK_IMPORTED_MODULE_6__["default"],
+    BaseInput: _Components_BaseInput__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CounterIcon: _Components_CounterIcon__WEBPACK_IMPORTED_MODULE_5__["default"],
+    CardTitle: _Components_CardTitle__WEBPACK_IMPORTED_MODULE_4__["default"],
+    CardLabel: _Components_CardLabel__WEBPACK_IMPORTED_MODULE_3__["default"],
     BaseCard: _Components_BaseCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     DashboardLayout: _Layouts_DashboardLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -24709,7 +24712,7 @@ var _hoisted_1 = {
   "class": "text-xl"
 };
 var _hoisted_2 = {
-  "class": "text-5xl"
+  "class": "text-3xl"
 };
 var _hoisted_3 = {
   key: 0
@@ -25071,11 +25074,15 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "hidden text-sm text-gray-500 text-center xl:block"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Crafted by "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-circle-h fa-2x text-purple-400"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Developed by "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   "class": "underline",
-  href: "https://youtube.com",
+  href: "https://github.com/ShemarSinclairennis",
   target: "_blank"
-}, "Shemar Ennis"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 💪🏽 ")], -1
+}, "Shemar Ennis")], -1
 /* HOISTED */
 );
 
@@ -26042,7 +26049,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "mr-3",
         "container-class": "input-size",
         leading: "fas fa-search",
-        placeholder: "Search Shipments...",
+        placeholder: "Search Patients...",
         type: "text"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_date_picker, {
         "class": "mr-3 input-size",
@@ -26149,8 +26156,11 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "mt-12"
 };
+var _hoisted_3 = {
+  "class": "m-8"
+};
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "w-1/6"
 }, "Ticket Number"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "w-1/6"
@@ -26162,23 +26172,23 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "RD00023", -1
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "RD00023", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Katey Perry", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Katey Perry", -1
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "X-RAY", -1
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "X-RAY", -1
 /* HOISTED */
 );
 
-var _hoisted_7 = {
+var _hoisted_8 = {
   "class": "flex space-x-12"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa-solid fa-circle-xmark fa-lg text-red-400"
 }, null, -1
 /* HOISTED */
@@ -26192,6 +26202,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_counter_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("counter-icon");
 
   var _component_base_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-card");
+
+  var _component_base_input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-input");
 
   var _component_status_tag = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("status-tag");
 
@@ -26246,19 +26258,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         label: "Patients"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_card, null, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_table, {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
+            "class": "w-1/3",
+            "container-class": "input-size",
+            leading: "fas fa-search",
+            placeholder: "Search Patients...",
+            type: "text"
+          })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_table, {
             "class": "px-8 pb-8"
           }, {
             head: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_3];
+              return [_hoisted_4];
             }),
             body: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(15, function (n) {
                 return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
                   key: n
-                }, [_hoisted_4, _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_status_tag, {
+                }, [_hoisted_5, _hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_status_tag, {
                   status: 'In Progress'
-                }), _hoisted_8])]);
+                }), _hoisted_9])]);
               }), 64
               /* STABLE_FRAGMENT */
               ))];

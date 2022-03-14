@@ -32,11 +32,16 @@
         </div>
 
         <p class="hidden text-sm text-gray-500 text-center xl:block">
-            Crafted by
-            <a class="underline" href="https://youtube.com" target="_blank"
+             <div class="flex justify-center mb-4">
+                <i class="fas fa-circle-h fa-2x text-purple-400"></i>
+            </div>
+            Developed by
+            <a
+                class="underline"
+                href="https://github.com/ShemarSinclairennis"
+                target="_blank"
                 >Shemar Ennis</a
             >
-            💪🏽
         </p>
     </nav>
 </template>

@@ -6,7 +6,7 @@
                     class="mr-3"
                     container-class="input-size"
                     leading="fas fa-search"
-                    placeholder="Search Shipments..."
+                    placeholder="Search Patients..."
                     type="text"
                 />
 
