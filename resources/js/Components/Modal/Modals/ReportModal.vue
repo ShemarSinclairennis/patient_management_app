@@ -1,9 +1,7 @@
 <template>
     <base-modal>
         <template #heading
-            ><h2 class="text-gray-500 font-medium">
-                Create Report Card
-            </h2></template
+            ><h2 class="text-gray-500 font-medium">Report Card</h2></template
         >
 
         <div>
@@ -39,7 +37,7 @@
                 v-model="form.description"
                 class="w-full"
                 label="Description"
-                type="textarea"
+                type="text"
             />
 
             <div class="flex justify-end">
@@ -48,6 +46,7 @@
                     color="purple"
                     label="Submit"
                     type="submit"
+                    @click="submit"
                 />
             </div>
         </div>
@@ -72,34 +71,41 @@ export default {
 
     setup() {
         const show = ref(false);
+        const toggleModal = inject("toggleReportModal");
         const report = inject("report");
-        const toggleModal = inject("toggleReportcardModal");
-
+        const patient = inject("patient");
         const mode = inject("mode");
-
         const user = inject("user");
         const form = useForm({
-            patient_id: report?.patient.id,
             service: report?.service,
-            department: report?.department,
             description: report?.description,
+            department: report?.department,
+            patient_id: patient.id,
         });
 
+        // onMounted(() => {
+        //     if (mode.value.toLowerCase() === "edit") step.value = 2;
+        // });
+
         function submit() {
-            console.log("stor");
-            form.post(route("reports.store"), {
+            console.log("store");
+            const options = {
                 preserveState: true,
                 preserveScroll: true,
                 onSuccess: () => toggleModal(),
-            });
+            };
+
+            form.post(route("reports.store", patient), options);
         }
 
         return {
+            mode,
             report,
+            toggleModal,
             form,
-            submit,
             show,
             user,
+            submit,
         };
     },
 };

@@ -24152,10 +24152,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=script&lang=js":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=script&lang=js ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -24184,34 +24184,40 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup() {
     var show = (0,vue__WEBPACK_IMPORTED_MODULE_5__.ref)(false);
+    var toggleModal = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("toggleReportModal");
     var report = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("report");
-    var toggleModal = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("toggleReportcardModal");
+    var patient = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("patient");
     var mode = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("mode");
     var user = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("user");
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__.useForm)({
-      patient_id: report === null || report === void 0 ? void 0 : report.patient.id,
       service: report === null || report === void 0 ? void 0 : report.service,
+      description: report === null || report === void 0 ? void 0 : report.description,
       department: report === null || report === void 0 ? void 0 : report.department,
-      description: report === null || report === void 0 ? void 0 : report.description
-    });
+      patient_id: patient.id
+    }); // onMounted(() => {
+    //     if (mode.value.toLowerCase() === "edit") step.value = 2;
+    // });
 
     function submit() {
-      console.log("stor");
-      form.post(route("reports.store"), {
+      console.log("store");
+      var options = {
         preserveState: true,
         preserveScroll: true,
         onSuccess: function onSuccess() {
           return toggleModal();
         }
-      });
+      };
+      form.post(route("reports.store", patient), options);
     }
 
     return {
+      mode: mode,
       report: report,
+      toggleModal: toggleModal,
       form: form,
-      submit: submit,
       show: show,
-      user: user
+      user: user,
+      submit: submit
     };
   }
 });
@@ -24973,7 +24979,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_InfoField__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/Components/InfoField */ "./resources/js/Components/InfoField.vue");
 /* harmony import */ var _Components_DepartmentTag__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/Components/DepartmentTag */ "./resources/js/Components/DepartmentTag.vue");
 /* harmony import */ var _Components_ReportCard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/Components/ReportCard */ "./resources/js/Components/ReportCard.vue");
-/* harmony import */ var _Components_Modal_Modals_ReportcardModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/Components/Modal/Modals/ReportcardModal */ "./resources/js/Components/Modal/Modals/ReportcardModal.vue");
+/* harmony import */ var _Components_Modal_Modals_ReportModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/Components/Modal/Modals/ReportModal */ "./resources/js/Components/Modal/Modals/ReportModal.vue");
 /* harmony import */ var _composables_useFormatter__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/composables/useFormatter */ "./resources/js/composables/useFormatter.js");
 /* harmony import */ var _composables_useModal__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/composables/useModal */ "./resources/js/composables/useModal.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
@@ -25008,7 +25014,7 @@ __webpack_require__.r(__webpack_exports__);
     DropdownLink: _Components_DropdownLink__WEBPACK_IMPORTED_MODULE_9__["default"],
     InfoField: _Components_InfoField__WEBPACK_IMPORTED_MODULE_10__["default"],
     ReportCard: _Components_ReportCard__WEBPACK_IMPORTED_MODULE_12__["default"],
-    ReportcardModal: _Components_Modal_Modals_ReportcardModal__WEBPACK_IMPORTED_MODULE_13__["default"],
+    ReportModal: _Components_Modal_Modals_ReportModal__WEBPACK_IMPORTED_MODULE_13__["default"],
     DepartmentTag: _Components_DepartmentTag__WEBPACK_IMPORTED_MODULE_11__["default"]
   },
   props: {
@@ -25024,16 +25030,21 @@ __webpack_require__.r(__webpack_exports__);
         formatDate = _useFormatter.formatDate;
 
     var _useModal2 = (0,_composables_useModal__WEBPACK_IMPORTED_MODULE_15__["default"])(),
-        showReportcardModal = _useModal2.showModal,
-        toggleReportcardModal = _useModal2.toggleModal;
+        showReportModal = _useModal2.showModal,
+        toggleReportModal = _useModal2.toggleModal,
+        report = _useModal2.selectedValue,
+        mode = _useModal2.mode;
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_16__.provide)("toggleReportcardModal", toggleReportcardModal);
+    (0,vue__WEBPACK_IMPORTED_MODULE_16__.provide)("toggleReportModal", toggleReportModal);
+    (0,vue__WEBPACK_IMPORTED_MODULE_16__.provide)("report", report);
+    (0,vue__WEBPACK_IMPORTED_MODULE_16__.provide)("patient", props.patient);
+    (0,vue__WEBPACK_IMPORTED_MODULE_16__.provide)("mode", mode);
     return {
       formatDate: formatDate,
       showModal: showModal,
       toggleModal: toggleModal,
-      showReportcardModal: showReportcardModal,
-      toggleReportcardModal: toggleReportcardModal
+      showReportModal: showReportModal,
+      toggleReportModal: toggleReportModal
     };
   }
 });
@@ -26665,10 +26676,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=template&id=1bdeeee6":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=template&id=1bdeeee6 ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=template&id=d7b464c6":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=template&id=d7b464c6 ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26681,7 +26692,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "text-gray-500 font-medium"
-}, " Create Report Card ", -1
+}, "Report Card", -1
 /* HOISTED */
 );
 
@@ -26783,15 +26794,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         "class": "w-full",
         label: "Description",
-        type: "textarea"
+        type: "text"
       }, null, 8
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
         "class": "flex-shrink-0",
         color: "purple",
         label: "Submit",
-        type: "submit"
-      })])])];
+        type: "submit",
+        onClick: $setup.submit
+      }, null, 8
+      /* PROPS */
+      , ["onClick"])])])];
     }),
     _: 1
     /* STABLE */
@@ -27953,7 +27967,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_report_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("report-card");
 
-  var _component_reportcard_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("reportcard-modal");
+  var _component_report_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("report-modal");
 
   var _component_dashboard_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("dashboard-layout");
 
@@ -28125,38 +28139,40 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         label: "Add Medical Card",
         icon: "fa-solid fa-plus",
         "class": "mr-8",
-        onClick: $setup.toggleReportcardModal
-      }, null, 8
-      /* PROPS */
-      , ["onClick"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(7, function (n) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_report_card, {
-          key: n,
-          service: "Echo Cardiogram",
-          department: "OB/GYN",
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $setup.toggleReportModal($props.patient);
+        })
+      })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.reports, function (report) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_report_card, {
+          key: report.id,
+          service: report.service,
+          department: report.department,
           attachment: true,
-          description: "Aorta: Ascending aorta, aortic arch and descending thoracic aorta are of normal caliber.\n                             Ao Valve z score= 0.09 ST junction z score 1.28 ). Aortic sinus 2.4 cm z score= -0.13 )\n                             Normalproximal coronary arteries. There is an aneurysm of the transverse aorta \n                              measuring up to(enter manually) mm.",
-          date: "January 02,2022",
+          description: report.description,
+          date: $setup.formatDate(report.created_at),
           iconColor: "OB/GYN"
-        });
-      }), 64
-      /* STABLE_FRAGMENT */
+        }, null, 8
+        /* PROPS */
+        , ["service", "department", "description", "date"]);
+      }), 128
+      /* KEYED_FRAGMENT */
       )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_card, {
         "class": "h-64 border-dotted border-2 border-gray-500 grid justify-items-center items-center"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
             "class": "fa-solid fa-circle-plus text-8xl text-purple-400 hover:text-blue-400",
-            onClick: _cache[0] || (_cache[0] = function () {
-              return $setup.toggleReportcardModal && $setup.toggleReportcardModal.apply($setup, arguments);
+            onClick: _cache[1] || (_cache[1] = function ($event) {
+              return $setup.toggleReportModal(_ctx.report);
             })
           })];
         }),
         _: 1
         /* STABLE */
 
-      })]), $setup.showReportcardModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_reportcard_modal, {
+      })]), $setup.showReportModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_report_modal, {
         key: 0,
-        onToggle: $setup.toggleReportcardModal
+        onToggle: $setup.toggleReportModal
       }, null, 8
       /* PROPS */
       , ["onToggle"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
@@ -28281,7 +28297,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                       icon: "fa-solid fa-eye",
                       label: "View",
                       "class": "hover:bg-black",
-                      href: _ctx.route('patients.show', patient)
+                      href: _ctx.route('patients.show', patient.id)
                     }, null, 8
                     /* PROPS */
                     , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_dropdown_link, {
@@ -55731,10 +55747,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Components/Modal/Modals/ReportcardModal.vue":
-/*!******************************************************************!*\
-  !*** ./resources/js/Components/Modal/Modals/ReportcardModal.vue ***!
-  \******************************************************************/
+/***/ "./resources/js/Components/Modal/Modals/ReportModal.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/Components/Modal/Modals/ReportModal.vue ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55742,15 +55758,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ReportcardModal_vue_vue_type_template_id_1bdeeee6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReportcardModal.vue?vue&type=template&id=1bdeeee6 */ "./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=template&id=1bdeeee6");
-/* harmony import */ var _ReportcardModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReportcardModal.vue?vue&type=script&lang=js */ "./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _ReportModal_vue_vue_type_template_id_d7b464c6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReportModal.vue?vue&type=template&id=d7b464c6 */ "./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=template&id=d7b464c6");
+/* harmony import */ var _ReportModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReportModal.vue?vue&type=script&lang=js */ "./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=script&lang=js");
 /* harmony import */ var _Applications_XAMPP_xamppfiles_htdocs_patient_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Applications_XAMPP_xamppfiles_htdocs_patient_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ReportcardModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ReportcardModal_vue_vue_type_template_id_1bdeeee6__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Components/Modal/Modals/ReportcardModal.vue"]])
+const __exports__ = /*#__PURE__*/(0,_Applications_XAMPP_xamppfiles_htdocs_patient_app_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ReportModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ReportModal_vue_vue_type_template_id_d7b464c6__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Components/Modal/Modals/ReportModal.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -56690,18 +56706,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=script&lang=js":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=script&lang=js ***!
-  \******************************************************************************************/
+/***/ "./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=script&lang=js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportcardModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportcardModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ReportcardModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ReportModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -57426,18 +57442,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=template&id=1bdeeee6":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=template&id=1bdeeee6 ***!
-  \************************************************************************************************/
+/***/ "./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=template&id=d7b464c6":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=template&id=d7b464c6 ***!
+  \********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportcardModal_vue_vue_type_template_id_1bdeeee6__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportModal_vue_vue_type_template_id_d7b464c6__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportcardModal_vue_vue_type_template_id_1bdeeee6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ReportcardModal.vue?vue&type=template&id=1bdeeee6 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportcardModal.vue?vue&type=template&id=1bdeeee6");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ReportModal_vue_vue_type_template_id_d7b464c6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ReportModal.vue?vue&type=template&id=d7b464c6 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modal/Modals/ReportModal.vue?vue&type=template&id=d7b464c6");
 
 
 /***/ }),

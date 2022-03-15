@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ReportController;
 use Inertia\Inertia;
 
 /*
@@ -40,6 +41,10 @@ Route::resource("patients", PatientController::class)->except([
 ]);
 
 Route::resource("tickets", TicketController::class)->except([
+    "edit",
+    "create",
+]);
+Route::resource("reports", ReportController::class)->except([
     "edit",
     "create",
 ]);

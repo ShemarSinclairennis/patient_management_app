@@ -144,36 +144,30 @@
                     label="Add Medical Card"
                     icon="fa-solid fa-plus"
                     class="mr-8"
-                    @click="toggleReportcardModal"
+                    @click="toggleReportModal(patient)"
                 />
             </div>
         </div>
         <div class="grid gap-y-12 grid-cols-2 mt-8">
             <report-card
-                v-for="n in 7"
-                :key="n"
-                service="Echo Cardiogram"
-                department="OB/GYN"
+                v-for="report in reports"
+                :key="report.id"
+                :service="report.service"
+                :department="report.department"
                 :attachment="true"
-                description="Aorta: Ascending aorta, aortic arch and descending thoracic aorta are of normal caliber.
-                             Ao Valve z score= 0.09 ST junction z score 1.28 ). Aortic sinus 2.4 cm z score= -0.13 )
-                             Normalproximal coronary arteries. There is an aneurysm of the transverse aorta 
-                              measuring up to(enter manually) mm."
-                date="January 02,2022"
+                :description="report.description"
+                :date="formatDate(report.created_at)"
                 iconColor="OB/GYN"
             />
             <base-card
                 class="h-64 border-dotted border-2 border-gray-500 grid justify-items-center items-center"
                 ><i
                     class="fa-solid fa-circle-plus text-8xl text-purple-400 hover:text-blue-400"
-                    @click="toggleReportcardModal"
+                    @click="toggleReportModal(report)"
                 ></i
             ></base-card>
         </div>
-        <reportcard-modal
-            v-if="showReportcardModal"
-            @toggle="toggleReportcardModal"
-        />
+        <report-modal v-if="showReportModal" @toggle="toggleReportModal" />
     </dashboard-layout>
 </template>
 
@@ -191,7 +185,7 @@ import DropdownLink from "@/Components/DropdownLink";
 import InfoField from "@/Components/InfoField";
 import DepartmentTag from "@/Components/DepartmentTag";
 import ReportCard from "@/Components/ReportCard";
-import ReportcardModal from "@/Components/Modal/Modals/ReportcardModal";
+import ReportModal from "@/Components/Modal/Modals/ReportModal";
 import useFormatter from "@/composables/useFormatter";
 import useModal from "@/composables/useModal";
 import { provide, toRefs } from "vue";
@@ -210,7 +204,7 @@ export default {
         DropdownLink,
         InfoField,
         ReportCard,
-        ReportcardModal,
+        ReportModal,
         DepartmentTag,
     },
     props: {
@@ -221,18 +215,25 @@ export default {
         const { showModal, toggleModal } = useModal();
         const { formatDate } = useFormatter();
         const {
-            showModal: showReportcardModal,
-            toggleModal: toggleReportcardModal,
+            showModal: showReportModal,
+            toggleModal: toggleReportModal,
+            selectedValue: report,
+
+            mode,
         } = useModal();
 
-        provide("toggleReportcardModal", toggleReportcardModal);
+        provide("toggleReportModal", toggleReportModal);
+        provide("report", report);
+        provide("patient", props.patient);
+
+        provide("mode", mode);
 
         return {
             formatDate,
             showModal,
             toggleModal,
-            showReportcardModal,
-            toggleReportcardModal,
+            showReportModal,
+            toggleReportModal,
         };
     },
 };

@@ -55,7 +55,9 @@
                                         icon="fa-solid fa-eye"
                                         label="View"
                                         class="hover:bg-black"
-                                        :href="route('patients.show', patient)"
+                                        :href="
+                                            route('patients.show', patient.id)
+                                        "
                                     />
                                     <dropdown-link
                                         icon="fas fa-edit"

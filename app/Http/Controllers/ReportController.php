@@ -36,9 +36,9 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-     
+    
         $report = new Report;
-        $report->patient_id = $request->patient_id;
+       $report->patient_id = $request->patient_id;
         $report->service = $request->service;
         $report->department = $request->department;
         $report->description = $request->description;
