@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('mobile_number');
             $table->string('work_number');
             $table->date('dob');
-            $table->date('pob');
+            $table->string('pob');
             $table->enum('birth_parish',['St.Andrew','Kingston','St.Mary','St.Ann','St.Thomas','St.Elizabeth','Portland','St.Catherine','Manchester','Clarendon','Hanover','Westmoreland','St.James','Trelawny']);
             $table->enum('emergency_title',['Ms','Mrs','Mr']);
             $table->string('emergency_first_name');

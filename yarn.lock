@@ -4193,6 +4193,13 @@ laravel-mix@^6.0.6:
     webpackbar "^5.0.0-3"
     yargs "^17.2.1"
 
+laravel-vue-pagination@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/laravel-vue-pagination/-/laravel-vue-pagination-3.0.0.tgz#4ac25b32538902ceb8cb6d2435669b576f3e6889"
+  integrity sha512-kskpo+1Ciz1uo1VWjgnwdeBv6M6sF3Hus/VnwFvPOUSpfsR/WVaE+nCN2QOE0FBcV5e32o/Nel5397Q8pgWQQg==
+  dependencies:
+    vue "^3.2.25"
+
 lilconfig@^2.0.3, lilconfig@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.4.tgz#f4507d043d7058b380b6a8f5cb7bcd4b34cee082"
@@ -6616,7 +6623,7 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
 
-vue@^3.2.30:
+vue@^3.2.25, vue@^3.2.30:
   version "3.2.31"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.31.tgz#e0c49924335e9f188352816788a4cca10f817ce6"
   integrity sha512-odT3W2tcffTiQCy57nOT93INw1auq5lYLLYtWpPYQQYQOOdHiqFct9Xhna6GJ+pJQaF67yZABraH47oywkJgFw==

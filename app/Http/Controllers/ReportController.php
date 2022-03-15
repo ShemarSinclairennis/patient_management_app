@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -35,7 +36,16 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+        $report = new Report;
+        $report->patient_id = $request->patient_id;
+        $report->service = $request->service;
+        $report->department = $request->department;
+        $report->description = $request->description;
+      
+     
+        $report->save();
+        return back()->withSuccess("Patient added to the system");
     }
 
     /**

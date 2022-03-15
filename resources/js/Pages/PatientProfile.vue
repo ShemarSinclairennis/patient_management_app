@@ -3,11 +3,11 @@
         <card-label label="General Information" />
         <base-card class="h-24 grid content-center">
             <div class="flex justify-around items-center">
-                <info-field name="Title" info="Ms" />
-                <info-field name="Name" info="Kate Perry" />
-                <info-field name="Gender" info="Female" />
-                <info-field name="D.O.B" info="May 15,1998" />
-                <info-field name="P.O.B" info="UHWI" />
+                <info-field name="Title" :info="patient.title" />
+                <info-field name="Name" :info="patient.first_name" />
+                <info-field name="Gender" :info="patient.gender" />
+                <info-field name="D.O.B" :info="formatDate(patient.dob)" />
+                <info-field name="P.O.B" :info="patient.pob" />
             </div>
         </base-card>
         <div class="my-8 mt-12">
@@ -20,13 +20,22 @@
                         <div class="flex flex-col space-y-3">
                             <info-field
                                 name="Address"
-                                info="31 Billy Avenue , Kingston 20 , St.Andrew"
+                                :info="patient.street_address"
                             />
                             <info-field name="Email" info="Kate@gmail.com" />
-                            <info-field name="Mobile" info="(876)-500-009" />
+                            <info-field
+                                name="Mobile"
+                                :info="patient.mobile_number"
+                            />
                             <div class="flex space-x-4">
-                                <info-field name="Home" info="(876)-500-009" />
-                                <info-field name="Work" info="(876)-500-009" />
+                                <info-field
+                                    name="Home"
+                                    :info="patient.home_number"
+                                />
+                                <info-field
+                                    name="Work"
+                                    :info="patient.work_number"
+                                />
                             </div>
                         </div>
                     </base-card>
@@ -38,10 +47,13 @@
                         class="flex justify-center grid content-center h-48"
                     >
                         <div class="flex flex-col space-y-3">
-                            <info-field name="John Doe" info="(876)-500-009" />
+                            <info-field
+                                name="Name"
+                                :info="patient.emergency_first_name"
+                            />
                             <info-field
                                 name="Address"
-                                info="31 Billy Avenue , Kingston 20 , St.Andrew"
+                                :info="patient.street_address"
                             />
                             <div class="flex space-x-4">
                                 <info-field
@@ -50,12 +62,18 @@
                                 />
                                 <info-field
                                     name="Mobile"
-                                    info="(876)-500-009"
+                                    :info="patient.mobile_number"
                                 />
                             </div>
                             <div class="flex space-x-4">
-                                <info-field name="Home" info="(876)-500-009" />
-                                <info-field name="Work" info="(876)-500-009" />
+                                <info-field
+                                    name="Home"
+                                    :info="patient.home_number"
+                                />
+                                <info-field
+                                    name="Work"
+                                    :info="patient.work_number"
+                                />
                             </div>
                         </div>
                     </base-card>
@@ -126,12 +144,12 @@
                     label="Add Medical Card"
                     icon="fa-solid fa-plus"
                     class="mr-8"
-                    @click="toggleMedcardModal"
+                    @click="toggleReportcardModal"
                 />
             </div>
         </div>
         <div class="grid gap-y-12 grid-cols-2 mt-8">
-            <med-card
+            <report-card
                 v-for="n in 7"
                 :key="n"
                 service="Echo Cardiogram"
@@ -148,11 +166,14 @@
                 class="h-64 border-dotted border-2 border-gray-500 grid justify-items-center items-center"
                 ><i
                     class="fa-solid fa-circle-plus text-8xl text-purple-400 hover:text-blue-400"
-                    @click="toggleMedcardModal"
+                    @click="toggleReportcardModal"
                 ></i
             ></base-card>
         </div>
-        <medcard-modal v-if="showMedcardModal" @toggle="toggleMedcardModal" />
+        <reportcard-modal
+            v-if="showReportcardModal"
+            @toggle="toggleReportcardModal"
+        />
     </dashboard-layout>
 </template>
 
@@ -169,8 +190,9 @@ import Dropdown from "@/Components/Dropdown";
 import DropdownLink from "@/Components/DropdownLink";
 import InfoField from "@/Components/InfoField";
 import DepartmentTag from "@/Components/DepartmentTag";
-import MedCard from "@/Components/MedCard";
-import MedcardModal from "@/Components/Modal/Modals/MedcardModal";
+import ReportCard from "@/Components/ReportCard";
+import ReportcardModal from "@/Components/Modal/Modals/ReportcardModal";
+import useFormatter from "@/composables/useFormatter";
 import useModal from "@/composables/useModal";
 import { provide, toRefs } from "vue";
 
@@ -187,22 +209,30 @@ export default {
         Dropdown,
         DropdownLink,
         InfoField,
-        MedCard,
-        MedcardModal,
+        ReportCard,
+        ReportcardModal,
         DepartmentTag,
+    },
+    props: {
+        patient: Object,
+        reports: Array,
     },
     setup(props) {
         const { showModal, toggleModal } = useModal();
-        const { showModal: showMedcardModal, toggleModal: toggleMedcardModal } =
-            useModal();
+        const { formatDate } = useFormatter();
+        const {
+            showModal: showReportcardModal,
+            toggleModal: toggleReportcardModal,
+        } = useModal();
 
-        provide("toggleMedcardModal", toggleMedcardModal);
+        provide("toggleReportcardModal", toggleReportcardModal);
 
         return {
+            formatDate,
             showModal,
             toggleModal,
-            showMedcardModal,
-            toggleMedcardModal,
+            showReportcardModal,
+            toggleReportcardModal,
         };
     },
 };

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('ticket_number');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('service');
+            $table->enum('service',['X-Ray','US','CT','PET','MRI']);
             $table->enum('status',['In Progress','Completed','Waiting']);
 
             $table->timestamps();

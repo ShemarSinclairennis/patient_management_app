@@ -17,11 +17,11 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->name(),
-            'last_name' => $this->faker->name(),
-            'service' => $this->faker->company(),
-            'ticket_number' => $this->faker->randomNumber(),
-            'status' => 'waiting'       
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'service' => $this->faker->randomElement(['X-Ray','US','CT','PET','MRI']),
+            'ticket_number' => $this->faker->numerify('####'),
+            'status' =>  $this->faker->randomElement(['In Progress','Completed','Waiting']),     
            
         ];
     }

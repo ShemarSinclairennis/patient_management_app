@@ -9,31 +9,31 @@
                         icon="fas fa-user"
                         icon-color="green"
                         service="X-Ray"
-                        count="15"
+                        :count="xray_count.length"
                     />
                     <counter-icon
                         icon="fas fa-user"
                         icon-color="blue"
                         service="US"
-                        count="09"
+                        :count="us_count.length"
                     />
                     <counter-icon
                         icon="fas fa-user"
                         icon-color="orange"
                         service="CT"
-                        count="11"
+                        :count="ct_count.length"
                     />
                     <counter-icon
                         icon="fas fa-user"
                         icon-color="purple"
                         service="PET"
-                        count="17"
+                        :count="pet_count.length"
                     />
                     <counter-icon
                         icon="fas fa-user"
                         icon-color="red"
                         service="MRI"
-                        count="05"
+                        :count="mri_count.length"
                     />
                 </div>
             </base-card>
@@ -74,7 +74,10 @@
                             </td>
                             <td>{{ ticket.service }}</td>
                             <td class="flex space-x-12">
-                                <status-tag :status="ticket.status" />
+                                <status-tag
+                                    :status="ticket.status"
+                                    @click="toggleStatusModal(ticket)"
+                                />
                                 <i
                                     class="fa-solid fa-circle-xmark fa-lg text-red-400"
                                     @click="
@@ -89,6 +92,7 @@
                 </base-table>
             </base-card>
         </div>
+        <status-modal v-if="showStatusModal" @toggle="toggleStatusModal" />
     </dashboard-layout>
 </template>
 
@@ -101,13 +105,16 @@ import CardTitle from "@/Components/CardTitle";
 import CounterIcon from "@/Components/CounterIcon";
 import BaseTable from "@/Components/BaseTable";
 import StatusTag from "@/Components/StatusTag";
+import StatusModal from "@/Components/Modal/Modals/StatusModal";
 import useFilterRequest from "@/composables/useFilterRequest";
 import useEmptyResource from "@/composables/useEmptyResource";
+import useModal from "@/composables/useModal";
 import { provide, toRefs } from "vue";
 
 export default {
     components: {
         StatusTag,
+        StatusModal,
         BaseTable,
         BaseInput,
         CounterIcon,
@@ -115,12 +122,25 @@ export default {
         CardLabel,
         BaseCard,
         DashboardLayout,
+        StatusModal,
     },
 
     props: {
         tickets: Array,
+        xray_count: Array,
+        us_count: Array,
+        ct_count: Array,
+        pet_count: Array,
+        mri_count: Array,
     },
     setup(props) {
+        const { showModal, toggleModal } = useModal();
+        const {
+            showModal: showStatusModal,
+            toggleModal: toggleStatusModal,
+            selectedValue: ticket,
+            mode,
+        } = useModal();
         const { tickets } = toRefs(props);
 
         const { params } = useFilterRequest("tickets.index", {
@@ -129,9 +149,14 @@ export default {
 
         const { resourceEmpty: ticketsEmpty } = useEmptyResource(tickets);
         provide("params", params);
-        provide("tickets", tickets);
+        provide("ticket", ticket);
+        provide("toggleStatusModal", toggleStatusModal);
+
+        provide("mode", mode);
 
         return {
+            showStatusModal,
+            toggleStatusModal,
             params,
         };
     },

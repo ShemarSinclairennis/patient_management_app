@@ -40,6 +40,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.6",
         "font-awesome": "^4.7.0",
         "inertia-table": "^1.0.8",
+        "laravel-vue-pagination": "^3.0.0",
         "tinymce": "^6.0.0",
         "vuejs-datepicker": "^1.6.2"
     }

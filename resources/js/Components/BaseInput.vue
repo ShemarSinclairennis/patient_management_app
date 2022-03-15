@@ -6,6 +6,7 @@
             class="input-label"
             v-text="label"
         ></label>
+
         <select
             v-if="type === 'select'"
             :id="id"
@@ -17,6 +18,12 @@
         >
             <slot />
         </select>
+        <textarea
+            :id="id"
+            class="border p-2 appearance-none block w-full bg-white text-gray-700 border-gray-600 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            v-else-if="type === 'textarea'"
+            @input="$emit('update:modelValue', $event.target.value)"
+        ></textarea>
 
         <div v-else :class="{ 'input-invalid': error }" class="input-container">
             <i v-if="trailing" :class="trailing" class="trailing" />

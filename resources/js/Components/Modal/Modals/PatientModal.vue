@@ -1,7 +1,9 @@
 <template>
     <base-modalex>
         <template #heading
-            ><h2 class="text-gray-500 font-medium">Add Patient</h2></template
+            ><h2 class="text-gray-500 font-medium">
+                {{ mode }} {{ patient.first_name }}'s Profile
+            </h2></template
         >
 
         <div v-if="step === 1">
@@ -60,7 +62,7 @@
                 </base-input>
 
                 <base-input
-                    v-model="form.phone_number"
+                    v-model="form.home_number"
                     class="w-full"
                     label="Phone Number (Home)"
                     type="text"
@@ -95,7 +97,7 @@
                 />
 
                 <base-input
-                    v-model="form.parish"
+                    v-model="form.birth_parish"
                     class="w-full"
                     label="Birth Place (Parish)"
                     type="text"
@@ -257,6 +259,7 @@ export default {
             street_address: patient?.street_address,
             city: patient?.city,
             parish: patient?.parish,
+
             home_number: patient?.home_number,
             mobile_number: patient?.mobile_number,
             work_number: patient?.work_number,
@@ -279,11 +282,19 @@ export default {
         // });
 
         function submit() {
-            form.post(route("patients.store"), {
+            const options = {
                 preserveState: true,
                 preserveScroll: true,
                 onSuccess: () => toggleModal(),
-            });
+            };
+
+            if (mode.value.toLowerCase() === "edit") {
+                form.put(route("patients.update", patient.id), options);
+            }
+
+            if (mode.value.toLowerCase() === "add") {
+                form.post(route("patients.store"), options);
+            }
         }
 
         function next() {
@@ -294,6 +305,8 @@ export default {
         }
 
         return {
+            mode,
+            patient,
             parishes,
             toggleModal,
             form,

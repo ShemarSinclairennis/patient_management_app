@@ -15,8 +15,16 @@ class TicketController extends Controller
      */
     public function index()
     {
+        
         return Inertia::render("Tickets", [
             "tickets" => Ticket::all(),
+           "xray_count"=>Ticket::where('service', '=', 'X-Ray')->get(),
+           "us_count"=>Ticket::where('service', '=', 'US')->get(),
+           "ct_count"=>Ticket::where('service', '=', 'CT')->get(),
+           "pet_count"=>Ticket::where('service', '=', 'PET')->get(),
+           "mri_count"=>Ticket::where('service', '=', 'MRI')->get(),
+            
+            
                 
         ]);
     }
@@ -73,7 +81,11 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $ticket->status = $request->status;
+     
+       
+        $ticket->save();
+        return back()->withSuccess("Patient added to the system");
     }
 
     /**

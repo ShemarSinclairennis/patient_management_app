@@ -40,30 +40,41 @@
                     </tr>
                 </template>
                 <template #body>
-                    <tr v-for="n in 15" :key="n">
-                        <td>Katey Perry</td>
-                        <td>May 2 ,1998</td>
-                        <td>(876)-447-3334</td>
-                        <td>(876)-447-3556</td>
+                    <tr v-for="patient in patients" :key="patient.id">
+                        <td>{{ patient.first_name }}</td>
+                        <td>{{ formatDate(patient.dob) }}</td>
+
+                        <td>{{ patient.mobile_number }}</td>
+                        <td>{{ patient.emergency_mobile_number }}</td>
                         <td class="extend">
                             <div class="flex justify-between items-center">
-                                24 Mabel Avenue
+                                {{ patient.street_address }}
 
                                 <dropdown>
                                     <dropdown-link
                                         icon="fa-solid fa-eye"
                                         label="View"
                                         class="hover:bg-black"
+                                        :href="route('patients.show', patient)"
                                     />
                                     <dropdown-link
                                         icon="fas fa-edit"
                                         label="Edit"
                                         class="hover:bg-black"
+                                        @click="togglePatientModal(patient)"
                                     />
                                     <dropdown-link
                                         icon="fas fa-trash"
                                         label="Delete"
                                         class="hover:bg-black"
+                                        @click="
+                                            $inertia.delete(
+                                                route(
+                                                    'patients.destroy',
+                                                    patient
+                                                )
+                                            )
+                                        "
                                     />
                                 </dropdown>
                             </div>
@@ -85,6 +96,7 @@ import BaseButton from "@/Components/BaseButton";
 import DatePicker from "vue-datepicker-next";
 import Dropdown from "@/Components/Dropdown";
 import DropdownLink from "@/Components/DropdownLink";
+import useFormatter from "@/composables/useFormatter";
 import useModal from "@/composables/useModal";
 import { provide, toRefs } from "vue";
 
@@ -100,14 +112,25 @@ export default {
         Dropdown,
         DropdownLink,
     },
+    props: {
+        patients: Array,
+    },
     setup(props) {
         const { showModal, toggleModal } = useModal();
-        const { showModal: showPatientModal, toggleModal: togglePatientModal } =
-            useModal();
+        const { formatDate } = useFormatter();
+        const {
+            showModal: showPatientModal,
+            toggleModal: togglePatientModal,
+            selectedValue: patient,
+            mode,
+        } = useModal();
 
         provide("togglePatientModal", togglePatientModal);
+        provide("patient", patient);
+        provide("mode", mode);
 
         return {
+            formatDate,
             showModal,
             toggleModal,
             showPatientModal,

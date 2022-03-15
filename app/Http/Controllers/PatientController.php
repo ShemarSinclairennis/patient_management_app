@@ -62,7 +62,8 @@ class PatientController extends Controller
         $patient->emergency_home_number = $request->emergency_home_number;
         $patient->emergency_mobile_number = $request->emergency_mobile_number;
         $patient->emergency_work_number = $request->emergency_work_number;
-        return back()->withSuccess("Manifest updated successfully.");
+        $patient->save();
+        return back()->withSuccess("Patient added to the system");
 
 
 
@@ -77,7 +78,11 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        return Inertia::render("PatientProfile", [
+            "patient" => $patient,
+            "reports" => $patient->reports,
+            
+        ]);
     }
 
     /**
@@ -100,7 +105,30 @@ class PatientController extends Controller
      */
     public function update(Request $request, Patient $patient)
     {
-        //
+        $patient->gender = $request->gender;
+        $patient->first_name = $request->first_name;
+        $patient->last_name = $request->last_name;
+        $patient->street_address = $request->street_address;
+        $patient->city = $request->city;
+        $patient->parish = $request->parish;
+        $patient->home_number = $request->home_number;
+        $patient->mobile_number = $request->mobile_number;
+        $patient->work_number = $request->work_number;
+        $patient->dob = $request->dob;
+        $patient->pob = $request->pob;
+        $patient->birth_parish = $request->birth_parish;
+        $patient->emergency_title = $request->emergency_title;
+        $patient->emergency_first_name = $request->emergency_first_name;
+        $patient->emergency_last_name = $request->emergency_last_name;
+        $patient->emergency_street_address = $request->emergency_street_address;
+        $patient->emergency_city = $request->emergency_city;
+        $patient->emergency_parish = $request->emergency_parish;
+        $patient->emergency_home_number = $request->emergency_home_number;
+        $patient->emergency_mobile_number = $request->emergency_mobile_number;
+        $patient->emergency_work_number = $request->emergency_work_number;
+        $patient->save();
+        return back()->withSuccess("Patient added to the system");
+        
     }
 
     /**
@@ -111,6 +139,8 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        $patient->delete();
+
+        return back()->withSuccess("Deleted successfully");
     }
 }
