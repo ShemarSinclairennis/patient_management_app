@@ -24085,11 +24085,13 @@ __webpack_require__.r(__webpack_exports__);
     var user = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("user");
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__.useForm)({
       gender: patient === null || patient === void 0 ? void 0 : patient.gender,
+      title: patient === null || patient === void 0 ? void 0 : patient.title,
       first_name: patient === null || patient === void 0 ? void 0 : patient.first_name,
       last_name: patient === null || patient === void 0 ? void 0 : patient.last_name,
       street_address: patient === null || patient === void 0 ? void 0 : patient.street_address,
       city: patient === null || patient === void 0 ? void 0 : patient.city,
       parish: patient === null || patient === void 0 ? void 0 : patient.parish,
+      email: patient === null || patient === void 0 ? void 0 : patient.email,
       home_number: patient === null || patient === void 0 ? void 0 : patient.home_number,
       mobile_number: patient === null || patient === void 0 ? void 0 : patient.mobile_number,
       work_number: patient === null || patient === void 0 ? void 0 : patient.work_number,
@@ -24102,6 +24104,7 @@ __webpack_require__.r(__webpack_exports__);
       emergency_street_address: patient === null || patient === void 0 ? void 0 : patient.emergency_street_address,
       emergency_city: patient === null || patient === void 0 ? void 0 : patient.emergency_city,
       emergency_parish: patient === null || patient === void 0 ? void 0 : patient.emergency_parish,
+      emergency_email: patient === null || patient === void 0 ? void 0 : patient.emergency_email,
       emergency_home_number: patient === null || patient === void 0 ? void 0 : patient.emergency_home_number,
       emergency_mobile_number: patient === null || patient === void 0 ? void 0 : patient.emergency_mobile_number,
       emergency_work_number: patient === null || patient === void 0 ? void 0 : patient.emergency_work_number
@@ -26322,48 +26325,122 @@ var _hoisted_3 = {
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  hidden: "",
+  selected: "",
+  value: ""
+}, " -- Select Gender -- ", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "male"
 }, "Male", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "female"
 }, "Female", -1
 /* HOISTED */
 );
 
-var _hoisted_6 = ["value"];
-var _hoisted_7 = {
-  "class": "flex justify-end"
-};
-var _hoisted_8 = {
-  key: 1
-};
-var _hoisted_9 = {
-  "class": "grid grid-cols-3 gap-x-4"
-};
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  hidden: "",
+  selected: "",
+  value: ""
+}, " -- Select Title -- ", -1
+/* HOISTED */
+);
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "Mr"
 }, "Mr", -1
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "Ms"
 }, "Ms", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "Mrs"
 }, "Mrs", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = ["value"];
-var _hoisted_14 = {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  hidden: "",
+  selected: "",
+  value: ""
+}, " -- Select Parish -- ", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = ["value"];
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  hidden: "",
+  selected: "",
+  value: ""
+}, " -- Select Parish -- ", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = ["value"];
+var _hoisted_15 = {
+  "class": "flex justify-end"
+};
+var _hoisted_16 = {
+  key: 1
+};
+var _hoisted_17 = {
+  "class": "grid grid-cols-3 gap-x-4"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  hidden: "",
+  selected: "",
+  value: ""
+}, " -- Select Title -- ", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Mr"
+}, "Mr", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Ms"
+}, "Ms", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "Mrs"
+}, "Mrs", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  disabled: "",
+  hidden: "",
+  selected: "",
+  value: ""
+}, " -- Select Parish -- ", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = ["value"];
+var _hoisted_24 = {
   "class": "flex items-center justify-between"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -26394,7 +26471,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "select"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_4, _hoisted_5];
+          return [_hoisted_4, _hoisted_5, _hoisted_6];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
+        modelValue: $setup.form.title,
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $setup.form.title = $event;
+        }),
+        "class": "w-full",
+        label: "Title",
+        type: "select"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10];
         }),
         _: 1
         /* STABLE */
@@ -26403,7 +26497,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.first_name,
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $setup.form.first_name = $event;
         }),
         "class": "w-full",
@@ -26413,7 +26507,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.last_name,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $setup.form.last_name = $event;
         }),
         "class": "w-full",
@@ -26423,7 +26517,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.street_address,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $setup.form.street_address = $event;
         }),
         "class": "w-full",
@@ -26433,7 +26527,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.city,
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $setup.form.city = $event;
         }),
         "class": "w-full",
@@ -26443,7 +26537,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.parish,
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $setup.form.parish = $event;
         }),
         "class": "w-full",
@@ -26451,13 +26545,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "select"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.parishes, function (parish) {
+          return [_hoisted_11, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.parishes, function (parish) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
               key: parish,
               value: parish
             }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parish), 9
             /* TEXT, PROPS */
-            , _hoisted_6);
+            , _hoisted_12);
           }), 128
           /* KEYED_FRAGMENT */
           ))];
@@ -26468,8 +26562,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
+        modelValue: $setup.form.email,
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+          return $setup.form.email = $event;
+        }),
+        "class": "w-full",
+        label: "Email",
+        type: "text"
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.home_number,
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
           return $setup.form.home_number = $event;
         }),
         "class": "w-full",
@@ -26479,7 +26583,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.mobile_number,
-        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+        "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
           return $setup.form.mobile_number = $event;
         }),
         "class": "w-full",
@@ -26489,7 +26593,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.work_number,
-        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+        "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
           return $setup.form.work_number = $event;
         }),
         "class": "w-full",
@@ -26499,7 +26603,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.dob,
-        "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
+        "onUpdate:modelValue": _cache[11] || (_cache[11] = function ($event) {
           return $setup.form.dob = $event;
         }),
         "class": "w-full",
@@ -26509,7 +26613,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.pob,
-        "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
+        "onUpdate:modelValue": _cache[12] || (_cache[12] = function ($event) {
           return $setup.form.pob = $event;
         }),
         "class": "w-full",
@@ -26519,15 +26623,31 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.birth_parish,
-        "onUpdate:modelValue": _cache[11] || (_cache[11] = function ($event) {
+        "onUpdate:modelValue": _cache[13] || (_cache[13] = function ($event) {
           return $setup.form.birth_parish = $event;
         }),
         "class": "w-full",
-        label: "Birth Place (Parish)",
-        type: "text"
-      }, null, 8
+        label: "Parish of Birth",
+        type: "select"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_13, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.parishes, function (parish) {
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+              key: parish,
+              value: parish
+            }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parish), 9
+            /* TEXT, PROPS */
+            , _hoisted_14);
+          }), 128
+          /* KEYED_FRAGMENT */
+          ))];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
       /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
         "class": "flex-shrink-0",
         color: "purple",
         label: "Next",
@@ -26535,11 +26655,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: $setup.next
       }, null, 8
       /* PROPS */
-      , ["onClick"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.step === 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card_label, {
+      , ["onClick"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.step === 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card_label, {
         label: "Emergency Contact"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_title,
-        "onUpdate:modelValue": _cache[12] || (_cache[12] = function ($event) {
+        "onUpdate:modelValue": _cache[14] || (_cache[14] = function ($event) {
           return $setup.form.emergency_title = $event;
         }),
         "class": "w-full",
@@ -26547,7 +26667,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "select"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_10, _hoisted_11, _hoisted_12];
+          return [_hoisted_18, _hoisted_19, _hoisted_20, _hoisted_21];
         }),
         _: 1
         /* STABLE */
@@ -26556,7 +26676,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_first_name,
-        "onUpdate:modelValue": _cache[13] || (_cache[13] = function ($event) {
+        "onUpdate:modelValue": _cache[15] || (_cache[15] = function ($event) {
           return $setup.form.emergency_first_name = $event;
         }),
         "class": "w-full",
@@ -26566,7 +26686,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_last_name,
-        "onUpdate:modelValue": _cache[14] || (_cache[14] = function ($event) {
+        "onUpdate:modelValue": _cache[16] || (_cache[16] = function ($event) {
           return $setup.form.emergency_last_name = $event;
         }),
         "class": "w-full",
@@ -26576,7 +26696,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_street_address,
-        "onUpdate:modelValue": _cache[15] || (_cache[15] = function ($event) {
+        "onUpdate:modelValue": _cache[17] || (_cache[17] = function ($event) {
           return $setup.form.emergency_street_address = $event;
         }),
         "class": "w-full",
@@ -26586,7 +26706,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_city,
-        "onUpdate:modelValue": _cache[16] || (_cache[16] = function ($event) {
+        "onUpdate:modelValue": _cache[18] || (_cache[18] = function ($event) {
           return $setup.form.emergency_city = $event;
         }),
         "class": "w-full",
@@ -26596,7 +26716,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_parish,
-        "onUpdate:modelValue": _cache[17] || (_cache[17] = function ($event) {
+        "onUpdate:modelValue": _cache[19] || (_cache[19] = function ($event) {
           return $setup.form.emergency_parish = $event;
         }),
         "class": "w-full",
@@ -26604,13 +26724,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "select"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.parishes, function (parish) {
+          return [_hoisted_22, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.parishes, function (parish) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
               key: parish,
               value: parish
             }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parish), 9
             /* TEXT, PROPS */
-            , _hoisted_13);
+            , _hoisted_23);
           }), 128
           /* KEYED_FRAGMENT */
           ))];
@@ -26621,8 +26741,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
+        modelValue: $setup.form.emergency_email,
+        "onUpdate:modelValue": _cache[20] || (_cache[20] = function ($event) {
+          return $setup.form.emergency_email = $event;
+        }),
+        "class": "w-full",
+        label: "Email",
+        type: "text"
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_home_number,
-        "onUpdate:modelValue": _cache[18] || (_cache[18] = function ($event) {
+        "onUpdate:modelValue": _cache[21] || (_cache[21] = function ($event) {
           return $setup.form.emergency_home_number = $event;
         }),
         "class": "w-full",
@@ -26632,7 +26762,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_mobile_number,
-        "onUpdate:modelValue": _cache[19] || (_cache[19] = function ($event) {
+        "onUpdate:modelValue": _cache[22] || (_cache[22] = function ($event) {
           return $setup.form.emergency_mobile_number = $event;
         }),
         "class": "w-full",
@@ -26642,7 +26772,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_input, {
         modelValue: $setup.form.emergency_work_number,
-        "onUpdate:modelValue": _cache[20] || (_cache[20] = function ($event) {
+        "onUpdate:modelValue": _cache[23] || (_cache[23] = function ($event) {
           return $setup.form.emergency_work_number = $event;
         }),
         "class": "w-full",
@@ -26650,13 +26780,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "text"
       }, null, 8
       /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
         "class": "mr-2",
         color: "purple",
         icon: "fas fa-chevron-left",
         square: "",
         type: "button",
-        onClick: _cache[21] || (_cache[21] = function ($event) {
+        onClick: _cache[24] || (_cache[24] = function ($event) {
           return $setup.step = 1;
         })
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
@@ -26794,7 +26924,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         "class": "w-full",
         label: "Description",
-        type: "text"
+        type: "textarea"
       }, null, 8
       /* PROPS */
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
@@ -28024,8 +28154,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           /* PROPS */
           , ["info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Email",
-            info: "Kate@gmail.com"
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
+            info: $props.patient.email
+          }, null, 8
+          /* PROPS */
+          , ["info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Mobile",
             info: $props.patient.mobile_number
           }, null, 8
@@ -28058,25 +28190,27 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           /* PROPS */
           , ["info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Address",
-            info: $props.patient.street_address
+            info: $props.patient.emergency_street_address
           }, null, 8
           /* PROPS */
           , ["info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Email",
-            info: "Kate@gmail.com"
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
+            info: $props.patient.emergency_email
+          }, null, 8
+          /* PROPS */
+          , ["info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Mobile",
-            info: $props.patient.mobile_number
+            info: $props.patient.emergency_mobile_number
           }, null, 8
           /* PROPS */
           , ["info"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Home",
-            info: $props.patient.home_number
+            info: $props.patient.emergency_home_number
           }, null, 8
           /* PROPS */
           , ["info"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_field, {
             name: "Work",
-            info: $props.patient.work_number
+            info: $props.patient.emergency_work_number
           }, null, 8
           /* PROPS */
           , ["info"])])])];

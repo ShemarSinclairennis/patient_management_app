@@ -37,7 +37,7 @@
                 v-model="form.description"
                 class="w-full"
                 label="Description"
-                type="text"
+                type="textarea"
             />
 
             <div class="flex justify-end">

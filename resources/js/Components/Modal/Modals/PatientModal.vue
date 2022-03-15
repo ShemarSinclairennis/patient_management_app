@@ -15,8 +15,24 @@
                     label="Gender"
                     type="select"
                 >
+                    <option disabled hidden selected value="">
+                        -- Select Gender --
+                    </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
+                </base-input>
+                <base-input
+                    v-model="form.title"
+                    class="w-full"
+                    label="Title"
+                    type="select"
+                >
+                    <option disabled hidden selected value="">
+                        -- Select Title --
+                    </option>
+                    <option value="Mr">Mr</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Mrs">Mrs</option>
                 </base-input>
 
                 <base-input
@@ -52,6 +68,9 @@
                     label="Parish"
                     type="select"
                 >
+                    <option disabled hidden selected value="">
+                        -- Select Parish --
+                    </option>
                     <option
                         v-for="parish in parishes"
                         :key="parish"
@@ -60,6 +79,12 @@
                         {{ parish }}
                     </option>
                 </base-input>
+                <base-input
+                    v-model="form.email"
+                    class="w-full"
+                    label="Email"
+                    type="text"
+                />
 
                 <base-input
                     v-model="form.home_number"
@@ -99,9 +124,20 @@
                 <base-input
                     v-model="form.birth_parish"
                     class="w-full"
-                    label="Birth Place (Parish)"
-                    type="text"
-                />
+                    label="Parish of Birth"
+                    type="select"
+                >
+                    <option disabled hidden selected value="">
+                        -- Select Parish --
+                    </option>
+                    <option
+                        v-for="parish in parishes"
+                        :key="parish"
+                        :value="parish"
+                    >
+                        {{ parish }}
+                    </option>
+                </base-input>
             </div>
 
             <div class="flex justify-end">
@@ -123,7 +159,11 @@
                     class="w-full"
                     label="Title"
                     type="select"
-                    ><option value="Mr">Mr</option>
+                >
+                    <option disabled hidden selected value="">
+                        -- Select Title --
+                    </option>
+                    <option value="Mr">Mr</option>
                     <option value="Ms">Ms</option>
                     <option value="Mrs">Mrs</option>
                 </base-input>
@@ -161,6 +201,9 @@
                     label="Parish"
                     type="select"
                 >
+                    <option disabled hidden selected value="">
+                        -- Select Parish --
+                    </option>
                     <option
                         v-for="parish in parishes"
                         :key="parish"
@@ -169,7 +212,12 @@
                         {{ parish }}
                     </option></base-input
                 >
-
+                <base-input
+                    v-model="form.emergency_email"
+                    class="w-full"
+                    label="Email"
+                    type="text"
+                />
                 <base-input
                     v-model="form.emergency_home_number"
                     class="w-full"
@@ -254,12 +302,13 @@ export default {
         const user = inject("user");
         const form = useForm({
             gender: patient?.gender,
+            title: patient?.title,
             first_name: patient?.first_name,
             last_name: patient?.last_name,
             street_address: patient?.street_address,
             city: patient?.city,
             parish: patient?.parish,
-
+            email: patient?.email,
             home_number: patient?.home_number,
             mobile_number: patient?.mobile_number,
             work_number: patient?.work_number,
@@ -272,6 +321,7 @@ export default {
             emergency_street_address: patient?.emergency_street_address,
             emergency_city: patient?.emergency_city,
             emergency_parish: patient?.emergency_parish,
+            emergency_email: patient?.emergency_email,
             emergency_home_number: patient?.emergency_home_number,
             emergency_mobile_number: patient?.emergency_mobile_number,
             emergency_work_number: patient?.emergency_work_number,

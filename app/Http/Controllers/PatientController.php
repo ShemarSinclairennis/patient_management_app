@@ -42,11 +42,13 @@ class PatientController extends Controller
        
         $patient = new Patient;
         $patient->gender = $request->gender;
+        $patient->title = $request->title;
         $patient->first_name = $request->first_name;
         $patient->last_name = $request->last_name;
         $patient->street_address = $request->street_address;
         $patient->city = $request->city;
         $patient->parish = $request->parish;
+        $patient->email = $request->email;
         $patient->home_number = $request->home_number;
         $patient->mobile_number = $request->mobile_number;
         $patient->work_number = $request->work_number;
@@ -59,6 +61,7 @@ class PatientController extends Controller
         $patient->emergency_street_address = $request->emergency_street_address;
         $patient->emergency_city = $request->emergency_city;
         $patient->emergency_parish = $request->emergency_parish;
+        $patient->emergency_email = $request->emergency_email;
         $patient->emergency_home_number = $request->emergency_home_number;
         $patient->emergency_mobile_number = $request->emergency_mobile_number;
         $patient->emergency_work_number = $request->emergency_work_number;

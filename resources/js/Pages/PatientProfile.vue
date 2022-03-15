@@ -22,7 +22,7 @@
                                 name="Address"
                                 :info="patient.street_address"
                             />
-                            <info-field name="Email" info="Kate@gmail.com" />
+                            <info-field name="Email" :info="patient.email" />
                             <info-field
                                 name="Mobile"
                                 :info="patient.mobile_number"
@@ -53,26 +53,26 @@
                             />
                             <info-field
                                 name="Address"
-                                :info="patient.street_address"
+                                :info="patient.emergency_street_address"
                             />
                             <div class="flex space-x-4">
                                 <info-field
                                     name="Email"
-                                    info="Kate@gmail.com"
+                                    :info="patient.emergency_email"
                                 />
                                 <info-field
                                     name="Mobile"
-                                    :info="patient.mobile_number"
+                                    :info="patient.emergency_mobile_number"
                                 />
                             </div>
                             <div class="flex space-x-4">
                                 <info-field
                                     name="Home"
-                                    :info="patient.home_number"
+                                    :info="patient.emergency_home_number"
                                 />
                                 <info-field
                                     name="Work"
-                                    :info="patient.work_number"
+                                    :info="patient.emergency_work_number"
                                 />
                             </div>
                         </div>
